@@ -1,0 +1,445 @@
+/* =======================================================
+   GLOBAL VARIABLES + BASE STYLES
+======================================================= */
+:root {
+  --bg: #0f0f0f;
+  --bg2: #fafafa;
+  --text: #ffffff;
+  --subtle: #cfcfcf;
+  --accent: #ffffff;
+  --container-width: 1200px;
+  --radius: 32px;
+  --transition: 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =======================================================
+   NAVBAR + DROPDOWN
+======================================================= */
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 25px 40px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 999;
+}
+
+.nav-left {
+  justify-self: start;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-center {
+  justify-self: center;
+}
+
+.nav-center a {
+  color: var(--text);
+  text-decoration: none;
+  margin: 0 18px;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.nav-center a:hover {
+  opacity: 0.6;
+}
+
+.nav-right {
+  justify-self: end;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1a1a1a;
+  padding: 12px 0;
+  border-radius: 8px;
+  display: none;
+  min-width: 220px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text);
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.06);
+  opacity: 1;
+}
+
+/* Home Section */
+
+.irfan-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps both centered */
+  gap: 30px;  /* <-- reduce the spacing here */
+  padding: 120px 40px;
+  max-width: 1500px;
+  margin: 0 auto; /* centers the whole section */
+}
+
+
+.irfan-text h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.irfan-text p {
+  color: var(--subtle);
+  font-size: 17px;
+  max-width: 550px;
+  text-align: justify;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps both centered */
+  padding: 40px 40px;
+  margin-top: 35px;
+  max-width: 1500px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  text-align: center;
+  /* padding: 80px 20px 40px; */
+}
+
+.about-text p {
+  color: var(--subtle);
+  font-size: 17px;
+  max-width: 750px;
+  text-align: center;
+  margin-top: -30px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps both centered */
+  padding: 10px 40px;
+  margin-top: 35px;
+  max-width: 1500px;
+}
+
+.contact-text h2 {
+  font-size: 36px;
+  text-align: center;
+  /* padding: 80px 20px 40px; */
+}
+
+.contact-text p {
+  color: var(--subtle);
+  font-size: 17px;
+  max-width: 750px;
+  text-align: center;
+  margin-top: -30px;
+}
+
+.buttonemail {
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px;
+}
+
+.buttonemail a {
+  background-color: #fafafa;
+  color: #1e1e1e;
+  text-decoration: none;
+  padding: 5px 15px;   /* nicely sized */
+  font-size: 16px;
+  border-radius: 8px;
+  transition: var(--transition);
+  display: inline-block; /* prevents full width */
+  width: auto;           /* keeps it tight */
+}
+
+
+/* =======================================================
+   CREATIVE DESIGN PAGE
+======================================================= */
+
+.creative-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps both centered */
+  gap: 30px;  /* <-- reduce the spacing here */
+  padding: 60px 40px;
+  max-width: 1500px;
+  margin: 0 auto; /* centers the whole section */
+}
+
+
+.creative-text h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.creative-text p {
+  color: var(--subtle);
+  font-size: 17px;
+  max-width: 550px;
+  text-align: justify;
+}
+
+.creative-mockup img {
+  width: 300px;
+  border-radius: 20px;
+}
+
+.creative-grid {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.creative-grid img {
+  width: 90%;
+  border-radius: 16px;
+  cursor: default;
+  transition: var(--transition);
+}
+
+.creative-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.email-grid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 80px 0px;
+}
+
+.email-grid img {
+  width: 85%;
+  max-width: 800px;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+  cursor: default;
+  transition: var(--transition);
+}
+
+.email-grid img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.7);
+}
+
+/*
+.creative-grid-email {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.creative-grid-email img {
+  width: 70%;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.creative-grid-email img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+} */
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #2a2a2a;
+  margin: 60px 0;
+}
+
+
+/* =======================================================
+   EMAIL MARKETING PAGE (FULLSCREEN HERO)
+======================================================= */
+
+.email-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.email-hero-bg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+}
+
+.email-hero-text {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-130%);
+  max-width: 550px;
+}
+
+.email-hero-text h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.email-hero-text p {
+  font-size: 17px;
+  color: var(--subtle);
+  line-height: 1.7;
+}
+
+
+/* =======================================================
+   UI/UX PAGE (TEXT ABOVE IMAGE — NOT OVERLAY)
+======================================================= */
+
+.uiux-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.uiux-header h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.uiux-header p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: var(--subtle);
+  line-height: 1.75;
+  text-align: center;
+}
+
+.uiux-hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.uiux-hero-image img {
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+}
+
+/* Center sections 2 & 3 */
+.uiux-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.uiux-image {
+  width: 85%;
+  max-width: 1300px;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+  cursor: default;
+  transition: var(--transition);
+}
+
+.uiux-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.7);
+}
+
+
+/* =======================================================
+   MODAL VIEWER
+======================================================= */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+@media (max-width: 900px) {
+
+  .creative-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .creative-mockup img {
+    margin-top: 40px;
+  }
+
+  .email-hero-text,
+  .uiux-header p {
+    text-align: center;
+  }
+
+  .uiux-image {
+    width: 95%;
+  }
+
+  .uiux-hero-image img {
+    max-width: 100%;
+  }
+}

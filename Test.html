@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irfan Bahri – Portfolio</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1e1e1e;
+      --subtle: #555;
+      --button-bg: #1e1e1e;
+      --button-text: #fafafa;
+    }
+    [data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #fafafa;
+      --subtle: #ccc;
+      --button-bg: #fafafa;
+      --button-text: #1e1e1e;
+    }
+    body {
+      margin:0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    .nav {
+      max-width:1100px;margin:auto;
+      padding:20px 20px;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .menu a {margin-left:20px;text-decoration:none;color:var(--text);}    
+    section {max-width:1100px;margin:120px auto;padding:0 20px;}
+    .title {font-size:48px;font-weight:700;margin-bottom:20px;}
+    .subtitle {font-size:18px;color:var(--subtle);margin-bottom:30px;}
+    .button {display:inline-block;padding:12px 28px;background:var(--button-bg);color:var(--button-text);border-radius:6px;text-decoration:none;}
+    .footer {text-align:center;padding:40px 0;color:var(--subtle);}    
+    .theme-toggle {cursor:pointer;padding:6px 12px;border:1px solid var(--text);border-radius:4px;margin-left:20px;}
+  .hero{display:flex;justify-content:space-between;align-items:center;gap:40px;}
+.hero-left{flex:1;}
+.hero-right{flex:1;display:flex;justify-content:center;}
+.hero-photo{width:320px;height:auto;border-radius:12px;object-fit:cover;}
+.about {
+      text-align: center;
+      max-width:1100px;margin:auto;
+      padding:20px 20px;
+      flex:1;
+}
+@media(max-width:880px){.hero{flex-direction:column;text-align:center;}.hero-right{order:-1;}}
+</style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <div class="logo">Irfan Bahri</div>
+    <nav class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle">Theme</button>
+</header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+  <div class="hero-left">
+    <h1 class="title">Design Everyday.<br>Improve Every Step.</h1>
+    <p class="subtitle">I’m Irfan Bahri, Junior Creative Designer. <!-- transitioning into UI/UX. --> </p>
+    <a href="#work" class="button">See My Work</a>
+  </div>
+
+  <div class="hero-right">
+    <img src="C:\Internship Irfan - TradeQuo\Portfolio\Web\images\irfan.jpg.jpeg" alt="Irfan Bahri" class="hero-photo">
+  </div>
+</section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a Graphic Designer who loves shaping ideas into visuals with personality and purpose. Blending creativity with UI/UX thinking, 
+      I enjoy crafting designs that feel modern, clean, and easy to experience. Whether it’s branding, social content, or interface design, I focus on visuals that connect with people, <br>
+      guide their attention, and make every interaction feel effortless. Design is my way of telling stories clear, simple, and visually engaging.
+    </p>
+  </section>
+
+  <!-- WORK SECTION -->
+  <section id="work" class="work">
+    <h2>Selected Work</h2>
+    <div class="work-grid">
+      <!-- We will add items later -->
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Let’s work together — I’d love to hear your ideas.</p>
+    <a href="mailto:hello@example.com" class="button">Email Me</a>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> Irfan Bahri
+  </footer>
+
+  <script>
+    const toggle=document.getElementById('themeToggle');
+    const current=localStorage.getItem('theme')||'light';
+    if(current==='dark') document.documentElement.setAttribute('data-theme','dark');
+    toggle.addEventListener('click',()=>{
+      const mode=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',mode);
+      localStorage.setItem('theme',mode);
+    });
+  </script>
+  <script>
+    /* Smooth Scrolling */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const target=document.querySelector(this.getAttribute('href'));
+        if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});} }); });
+
+    /* Active Nav Highlight */
+    const sections=document.querySelectorAll('section');
+    const navLinks=document.querySelectorAll('.menu a');
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id=entry.target.getAttribute('id');
+        if(entry.isIntersecting){
+          navLinks.forEach(link=>{
+            link.classList.toggle('active', link.getAttribute('href')==='#'+id);
+          });
+        }
+      });
+    },{threshold:0.6});
+    sections.forEach(sec=>observer.observe(sec));
+
+    /* Fade-In Animation */
+    const revealObserver=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('show'); }
+      });
+    },{threshold:0.2});
+    document.querySelectorAll('section').forEach(sec=>{
+      sec.classList.add('reveal'); revealObserver.observe(sec);
+    });
+
+    /* Dynamic Project Cards */
+    const projects=[
+      {title:'Project A', desc:'UI/UX Case Study'},
+      {title:'Project B', desc:'Website Design'},
+      {title:'Project C', desc:'Marketing Visuals'}
+    ];
+    const grid=document.querySelector('.work-grid');
+    projects.forEach(p=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`<h3>${p.title}</h3><p>${p.desc}</p>`;
+      card.addEventListener('click',()=>openModal(p));
+      grid.appendChild(card);
+    });
+
+    /* Modal System */
+    const modal=document.createElement('div');
+    modal.id='modal'; modal.className='modal hidden';
+    modal.innerHTML=`<div class="modal-content"><span id="closeModal">&times;</span><h2 id="modalTitle"></h2><p id="modalDesc"></p></div>`;
+    document.body.appendChild(modal);
+    function openModal(p){
+      document.getElementById('modalTitle').textContent=p.title;
+      document.getElementById('modalDesc').textContent=p.desc;
+      modal.classList.remove('hidden');
+    }
+    document.addEventListener('click',(e)=>{
+      if(e.target.id==='closeModal' || e.target===modal){ modal.classList.add('hidden'); }
+    });
+
+    /* Scroll To Top Button */
+    const topBtn=document.createElement('button');
+    topBtn.id='topBtn'; topBtn.textContent='↑'; topBtn.className='hidden';
+    document.body.appendChild(topBtn);
+    window.addEventListener('scroll',()=>{
+      topBtn.classList.toggle('show', window.scrollY>300);
+    });
+    topBtn.addEventListener('click',()=>window.scrollTo({top:0, behavior:'smooth'}));
+
+  </script>
+</body>
+</html>
