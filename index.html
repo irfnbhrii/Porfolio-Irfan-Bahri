@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Smooth Scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-left">Irfan Bahri</div>
+
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+
+    <div class="dropdown">
+      <a href="#">Artwork</a>
+      <div class="dropdown-menu">
+        <a href="Creative Design.html">Artwork – Creative</a>
+        <a href="email.html">Artwork – Email Marketing</a>
+        <a href="uiux.html">Artwork – UI/UX</a>
+      </div>
+    </div>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="irfan-hero">
+  <div class="irfan-text">
+    <h1>Design Everyday. <br> Improve Every Step.</h1>
+    <p>I’m Irfan Bahri, a Creative Designer</p>
+  </div>
+
+  <div class="creative-mockup">
+    <img src="irfan.jpg" alt="Irfan">
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about">
+  <div class="about-text">
+    <h2>About Me</h2>
+    <p>
+      I’m a Creative Designer who believes great design begins with clarity.
+      Every day, I refine my craft one layout, one concept, one improvement at a time.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="contact-text">
+    <h2>Contact Me</h2>
+    <p>Let’s work together, I’d love to hear your ideas.</p>
+
+    <div class="buttonemail">
+      <a href="mailto:irfanbahri02@gmail.com" target="_blank">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  © <span id="year"></span> Irfan Bahri
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
